@@ -1,0 +1,16 @@
+﻿<Window x:Class="RestaurantManagementSystem.Views.MainPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Main Page"
+        Height="450"
+        Width="800">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Left" Width="200" Background="LightGray">
+            <Button Content="Profile" Command="{Binding NavigateProfileCommand}" />
+            <Button Content="Restaurants" Command="{Binding NavigateRestaurantsCommand}" />
+            <Button Content="Order History" Command="{Binding NavigateOrderHistoryCommand}" />
+            <Button Content="Previous Complaints" Command="{Binding NavigateComplaintsCommand}" />
+        </StackPanel>
+        <ContentControl Content="{Binding CurrentViewModel}" DockPanel.Dock="Right" />
+    </DockPanel>
+</Window>
