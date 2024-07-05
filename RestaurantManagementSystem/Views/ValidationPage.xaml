@@ -1,0 +1,15 @@
+﻿<Window x:Class="RestaurantManagementSystem.Views.ValidationPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Validation Page"
+        Height="450"
+        Width="800">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Content="Validation Code"/>
+            <TextBox Width="200" Margin="10" Text="{Binding ValidationCode, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button Content="Validate" Command="{Binding ValidateCommand}" Width="200" Margin="10"/>
+            <TextBlock Text="{Binding ErrorMessage}" Foreground="Red" Margin="10"/>
+        </StackPanel>
+    </Grid>
+</Window>
