@@ -1,5 +1,9 @@
-﻿using RestaurantManagementSystem.Utilities;
+﻿// In the name of Allah
+
+using RestaurantManagementSystem.Utilities;
+using RestaurantManagementSystem.Models;
 using System.Windows.Input;
+using System.Linq;
 
 namespace RestaurantManagementSystem.ViewModels
 {
@@ -46,8 +50,14 @@ namespace RestaurantManagementSystem.ViewModels
         {
             if (ValidateInputs())
             {
-                // Implement login logic
-                Navigate("Main");
+                if (UserExistence())
+                {
+                    Navigate("Main");
+                }
+                else
+                {
+                    ErrorMessage = "Invalid Username or Password";
+                }
             }
         }
 
@@ -65,6 +75,21 @@ namespace RestaurantManagementSystem.ViewModels
             }
             ErrorMessage = string.Empty;
             return true;
+        }
+
+        bool UserExistence()
+        {
+            User user = User.admins.FirstOrDefault(x => x.Username.Equals(Username) && x.Password.Equals(Password));
+            User user1 = User.customers.FirstOrDefault(x => x.Username.Equals(Username) && x.Password.Equals(Password));
+            User user2 = User.restaurantManagers.FirstOrDefault(x => x.Username.Equals(Username) && x.Password.Equals(Password));
+            if (user != null || user1 != null || user2 != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private void Navigate(string viewName)
