@@ -1,6 +1,7 @@
 ﻿// In the name of Allah
 
 using RestaurantManagementSystem.Utilities;
+using RestaurantManagementSystem.Views;
 using RestaurantManagementSystem.Models;
 using System.Windows.Input;
 using System.Linq;
@@ -12,6 +13,12 @@ namespace RestaurantManagementSystem.ViewModels
         private string _username;
         private string _password;
         private string _errorMessage;
+        private readonly MainViewModel _mainViewModel;
+
+        public LoginViewModel(MainViewModel mainViewModel)
+        {
+            _mainViewModel = mainViewModel;
+        }
 
         public string Username
         {
@@ -94,7 +101,7 @@ namespace RestaurantManagementSystem.ViewModels
 
         private void Navigate(string viewName)
         {
-            // Implement navigation logic
+            _mainViewModel.Navigate(viewName);
         }
     }
 }
