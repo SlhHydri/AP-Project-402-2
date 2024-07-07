@@ -8,7 +8,7 @@ namespace RestaurantManagementSystem.ViewModels
 
         public MainViewModel()
         {
-            CurrentViewModel = new LoginViewModel();
+            CurrentViewModel = new LoginViewModel(this);
         }
 
         public BaseViewModel CurrentViewModel
@@ -23,12 +23,12 @@ namespace RestaurantManagementSystem.ViewModels
 
         public ICommand NavigateCommand => new RelayCommand<string>(Navigate);
 
-        private void Navigate(string viewName)
+        public void Navigate(string viewName)
         {
             switch (viewName)
             {
                 case "Login":
-                    CurrentViewModel = new LoginViewModel();
+                    CurrentViewModel = new LoginViewModel(this);
                     break;
                 case "SignUp":
                     CurrentViewModel = new SignUpViewModel();

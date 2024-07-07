@@ -1,9 +1,13 @@
 ﻿<Application x:Class="RestaurantManagementSystem.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:RestaurantManagementSystem"
+             xmlns:viewModels="clr-namespace:RestaurantManagementSystem.ViewModels"
+             xmlns:views="clr-namespace:RestaurantManagementSystem.Views"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <DataTemplate DataType="{x:Type viewModels:LoginViewModel}">
+            <views:LoginPage />
+        </DataTemplate>
+        <!-- Add other DataTemplates for other ViewModels here -->
     </Application.Resources>
 </Application>

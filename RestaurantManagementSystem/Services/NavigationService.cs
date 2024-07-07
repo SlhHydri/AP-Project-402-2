@@ -10,11 +10,11 @@ namespace RestaurantManagementSystem.Services
             window.Show();
         }
 
-        public void NavigateToLogin()
-        {
-            var loginPage = new LoginPage();
-            loginPage.Show();
-        }
+        //public void NavigateToLogin()
+        //{
+        //    var loginPage = new LoginPage();
+        //    loginPage.Show();
+        //}
 
         public void NavigateToSignUp()
         {
