@@ -89,14 +89,8 @@ namespace RestaurantManagementSystem.ViewModels
             User user = User.admins.FirstOrDefault(x => x.Username.Equals(Username) && x.Password.Equals(Password));
             User user1 = User.customers.FirstOrDefault(x => x.Username.Equals(Username) && x.Password.Equals(Password));
             User user2 = User.restaurantManagers.FirstOrDefault(x => x.Username.Equals(Username) && x.Password.Equals(Password));
-            if (user != null || user1 != null || user2 != null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+
+            return user != null || user1 != null || user2 != null;
         }
 
         private void Navigate(string viewName)

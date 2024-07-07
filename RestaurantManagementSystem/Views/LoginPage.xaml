@@ -1,10 +1,9 @@
-﻿<Window x:Class="RestaurantManagementSystem.Views.LoginPage"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:local="clr-namespace:RestaurantManagementSystem.Utilities"
-        Title="Login Page"
-        Height="450"
-        Width="800">
+﻿<UserControl x:Class="RestaurantManagementSystem.Views.LoginPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:RestaurantManagementSystem.Utilities"
+             Height="450"
+             Width="800">
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <Label Content="Username"/>
@@ -16,4 +15,4 @@
             <TextBlock Text="{Binding ErrorMessage}" Foreground="Red" Margin="10"/>
         </StackPanel>
     </Grid>
-</Window>
+</UserControl>
