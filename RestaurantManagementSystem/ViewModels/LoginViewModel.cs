@@ -70,12 +70,12 @@ namespace RestaurantManagementSystem.ViewModels
 
         private bool ValidateInputs()
         {
-            if (!Validator.ValidateUsername(Username))
+            if (Username == null || !Validator.ValidateUsername(Username))
             {
                 ErrorMessage = "Invalid Username";
                 return false;
             }
-            if (!Validator.ValidatePassword(Password))
+            if (Password == null || !Validator.ValidatePassword(Password))
             {
                 ErrorMessage = "Invalid Password";
                 return false;

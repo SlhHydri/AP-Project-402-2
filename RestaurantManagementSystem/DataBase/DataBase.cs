@@ -93,8 +93,8 @@ namespace RestaurantManagementSystem.DataBase
                         while (reader.Read())
                         {
                             int Id = reader.GetInt32(0);
-                            string Username = reader.GetString(1);
-                            string Password = reader.GetString(2);
+                            string Username = reader.GetString(1).Trim();
+                            string Password = reader.GetString(2).Trim();
 
                             admins.Add(new Admin(Id, Username, Password));
                         }
@@ -164,7 +164,7 @@ namespace RestaurantManagementSystem.DataBase
                             string Email = reader.GetString(5).Trim();
                             int gender;
                             Customer.EGender? Gender;
-                            if (int.TryParse(reader.GetString(6), out gender))
+                            if (int.TryParse(reader.GetString(6).Trim(), out gender))
                             {
                                 Gender = (Customer.EGender)gender;
                             }
@@ -172,8 +172,8 @@ namespace RestaurantManagementSystem.DataBase
                             {
                                 Gender = null;
                             }
-                            string HomeAddress = reader.GetString(7) == "null" ? null : reader.GetString(7);
-                            Customer.EType Type = (Customer.EType)int.Parse(reader.GetString(8));
+                            string HomeAddress = reader.GetString(7).Trim() == "null" ? null : reader.GetString(7).Trim();
+                            Customer.EType Type = (Customer.EType)int.Parse(reader.GetString(8).Trim());
 
                             customers.Add(new Customer(Id, Username, Password, FullName, PhoneNumber, Email, Gender, HomeAddress, Type));
                         }
@@ -240,7 +240,7 @@ namespace RestaurantManagementSystem.DataBase
                             string Address = reader.GetString(4).Trim();
                             string City = reader.GetString(5).Trim();
                             RestaurantManager.EType Type = reader.GetString(6).Trim() == "Delivery" ? RestaurantManager.EType.Delivery : RestaurantManager.EType.Dine_in;
-                            int Score = int.Parse(reader.GetString(7));
+                            int Score = int.Parse(reader.GetString(7).Trim());
                             restaurantManagers.Add(new RestaurantManager(Id, Username, Password, NameOfRestaurant, Address, City, Type, Score));
                         }
                     }

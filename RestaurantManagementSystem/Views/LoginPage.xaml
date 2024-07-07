@@ -15,4 +15,4 @@
             <TextBlock Text="{Binding ErrorMessage}" Foreground="Red" Margin="10"/>
         </StackPanel>
     </Grid>
-</UserControl>
+</UserControl>    

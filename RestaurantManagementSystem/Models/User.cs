@@ -20,9 +20,11 @@ namespace RestaurantManagementSystem.Models
 
         static User()
         {
-            customers = new List<Customer>();
-            restaurantManagers = new List<RestaurantManager>();
-            admins = new List<Admin>();
+            DataBase.DataBase db = new DataBase.DataBase();
+
+            customers = db.SelectCustomer();
+            restaurantManagers = db.SelectRestaurantManager();
+            admins = db.SelectAdmin();
         }
     }
 }
